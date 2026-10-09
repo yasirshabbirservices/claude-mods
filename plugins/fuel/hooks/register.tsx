@@ -2,9 +2,10 @@ import { atom, read, update } from 'claude-code'
 import type { EngineInterface, Register, SessionContextUsage, SessionRateLimit } from 'claude-code'
 
 import type { FuelUsage } from '../types'
-import { barCells, gauges, pack, summary, svgCard } from './gauges'
+import { barCells, gauges, isNearLimit, pack, summary, svgCard } from './gauges'
 
-// One band above the prompt: the context window, each plan limit with its
+// A band above the prompt, shown only once the context window (70%) or a plan
+// limit (80%) is near its end, both set in /config: the context window, each plan limit with its
 // reset countdown, and the cache's age against its warm window (an estimate),
 // as gradient gauges that turn from clay to amber to red as they fill. A gauge
 // with no number is left out. Compact runs only when pressed. /fuel prints
@@ -41,7 +42,10 @@ async function responded($: EngineInterface) {
 }
 
 export const register: Register = (on, options) => {
-  const warm = Number((options as Record<string, unknown>).cache_warm_minutes ?? 5)
+  const o = options as Record<string, unknown>
+  const warm = Number(o.cache_warm_minutes ?? 5)
+  const contextAt = Number(o.context_threshold ?? 70)
+  const limitAt = Number(o.limit_threshold ?? 80)
 
   on('session.start', async ($, e, next) => {
     const started = await next(e)
@@ -82,7 +86,10 @@ export const register: Register = (on, options) => {
 
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {
     if (e.props.hasSurvey) return next(e)
-    const list = gauges(await read($, usageAtom), await read($, lastResponse), Math.max(await read($, nowAtom), 1), warm)
+    const usage = await read($, usageAtom)
+    // Quiet until something is near its limit; /fuel answers any time.
+    if (!isNearLimit(usage, contextAt, limitAt)) return next(e)
+    const list = gauges(usage, await read($, lastResponse), Math.max(await read($, nowAtom), 1), warm)
     if (list.length === 0) return next(e)
 
     const below = await next(e)

@@ -66,6 +66,10 @@ export const gauges = (usage: FuelUsage | null, lastResponseAt: number | null, n
   return out
 }
 
+/** Whether the band should show: the context window or any plan limit is at its threshold. */
+export const isNearLimit = (usage: FuelUsage | null, contextAt: number, limitAt: number): boolean =>
+  usage !== null && ((usage.percent ?? 0) >= contextAt || usage.limits.some(l => l.percentUsed >= limitAt))
+
 /** One line for /fuel. */
 export const summary = (list: Gauge[]) =>
   list.length === 0

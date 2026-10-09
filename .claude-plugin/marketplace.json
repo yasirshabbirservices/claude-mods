@@ -58,7 +58,7 @@
     {
       "name": "fuel",
       "source": "./plugins/fuel",
-      "description": "One band above the prompt showing runway: context window, plan limits with reset countdowns and an estimated cache age as clay-to-red gauges; Compact button; /fuel one-line summary."
+      "description": "Shows only near a limit: context window, plan limits with reset countdowns and an estimated cache age as clay-to-red gauges; Compact button; /fuel any time."
     },
     {
       "name": "recorder",

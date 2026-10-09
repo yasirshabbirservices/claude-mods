@@ -34,7 +34,7 @@ const measure = ($: Engine, percent: number | undefined, limits: unknown[] = [],
 
 const LIMITS = [
   { kind: 'five_hour', percentUsed: 18, resetsAt: iso(NOW + (2 * 60 + 14) * 60_000) },
-  { kind: 'seven_day', percentUsed: 73.5, resetsAt: iso(NOW + (3 * 24 + 4) * 3_600_000) },
+  { kind: 'seven_day', percentUsed: 85.5, resetsAt: iso(NOW + (3 * 24 + 4) * 3_600_000) },
 ]
 
 test('the band shows every gauge that has a number, on the terminal and the desktop', async ($, on) => {
@@ -67,11 +67,32 @@ test('a gauge without a number is left out, and no numbers means no band', async
   expect(await empty.find({ key: 'compact' })).toBeUndefined()
   await empty.unmount()
 
-  await measure($, undefined, [LIMITS[0]], ['rateLimits'])
+  await measure($, undefined, [{ ...LIMITS[0], percentUsed: 90 }], ['rateLimits'])
   const ui = await $.ui.mount({ plugin: 'fuel', surface: 'terminal', ...band })
   expect(await ui.find({ key: 'bar-limit-five_hour' })).toBeDefined()
   expect(await ui.find({ key: 'bar-context' })).toBeUndefined()
   expect(await ui.find({ key: 'bar-cache' })).toBeUndefined()
+  await ui.unmount()
+})
+
+test('stays quiet below the thresholds; /fuel still answers', async ($, on) => {
+  mock.clock(on, { now: NOW })
+  engine(on)
+  await measure($, 42, [{ ...LIMITS[0] }, { kind: 'seven_day', percentUsed: 60 }])
+  const ui = await $.ui.mount({ plugin: 'fuel', surface: 'terminal', ...band })
+  expect(await ui.find({ key: 'bar-context' })).toBeUndefined()
+  expect(await ui.find({ key: 'below' })).toBeDefined()
+  await ui.unmount()
+  const line = (await $.command.run({ command: 'fuel', args: '' } as Parameters<Engine['command']['run']>[0])) as { text: string }
+  expect(line.text).toContain('Context 42%')
+})
+
+test('the thresholds come from /config', { options: { context_threshold: 40, limit_threshold: 95 } }, async ($, on) => {
+  mock.clock(on, { now: NOW })
+  engine(on)
+  await measure($, 42, [{ kind: 'five_hour', percentUsed: 90 }])
+  const ui = await $.ui.mount({ plugin: 'fuel', surface: 'terminal', ...band })
+  expect(await ui.find({ key: 'bar-context' })).toBeDefined()
   await ui.unmount()
 })
 
@@ -91,7 +112,7 @@ test('/fuel is one line, and the cache gauge goes cold after the warm window', {
   engine(on)
   await measure($, 42, LIMITS)
   const line = (await $.command.run({ command: 'fuel', args: '' } as Parameters<Engine['command']['run']>[0])) as { text: string }
-  expect(line.text).toBe('Context 42% (84k / 200k tokens) · 5-hour 18% (resets in 2h 14m) · 7-day 74% (resets in 3d 4h) · Cache <1m (of 5m warm window (estimate))')
+  expect(line.text).toBe('Context 42% (84k / 200k tokens) · 5-hour 18% (resets in 2h 14m) · 7-day 86% (resets in 3d 4h) · Cache <1m (of 5m warm window (estimate))')
   expect(line.text.includes('\n')).toBe(false)
   await clock.advance(6 * 60_000)
   const later = (await $.command.run({ command: 'fuel', args: '' } as Parameters<Engine['command']['run']>[0])) as { text: string }

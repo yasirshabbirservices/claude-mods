@@ -1,8 +1,10 @@
 {
   "name": "fuel",
-  "version": "0.1.0",
-  "author": { "name": "Yasir" },
-  "description": "One band above the prompt showing runway: context window, plan limits with reset countdowns and an estimated cache age, as clay-to-red gradient gauges; a Compact button; /fuel for a one-line summary",
+  "version": "0.2.0",
+  "author": {
+    "name": "Yasir"
+  },
+  "description": "Above the prompt only when you are near a limit: context window, plan limits with reset countdowns and an estimated cache age, as clay-to-red gradient gauges; a Compact button; /fuel any time for a one-line summary",
   "types": "./types/index.d.ts",
   "userConfig": {
     "cache_warm_minutes": {
@@ -10,6 +12,18 @@
       "title": "Cache warm window (minutes)",
       "description": "How long the prompt cache stays warm after a response: 5 for the default cache, 60 for the 1-hour cache. The cache gauge is an estimate from this.",
       "default": 5
+    },
+    "context_threshold": {
+      "type": "number",
+      "title": "Show at context %",
+      "description": "The band appears once the context window is at least this full.",
+      "default": 70
+    },
+    "limit_threshold": {
+      "type": "number",
+      "title": "Show at plan limit %",
+      "description": "The band appears once any plan limit (5-hour, 7-day, spend) is at least this used.",
+      "default": 80
     }
   }
 }
