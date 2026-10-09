@@ -9,6 +9,6 @@ A band above the prompt showing how full the context window is: a weather word (
 ## Install
 
 ```bash
-claude plugin marketplace add yasiranjan007/claude-mods
+claude plugin marketplace add yasirshabbirservices/claude-mods
 claude plugin install token-weather@yasir-mods --scope user
 ```
