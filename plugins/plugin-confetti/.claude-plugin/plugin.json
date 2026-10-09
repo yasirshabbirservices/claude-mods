@@ -1,0 +1,1 @@
+{ "name": "plugin-confetti", "version": "0.1.0", "author": { "name": "Yasir" }, "description": "When an MCP tool call finishes, shows that plugin's real logo with a short confetti burst above the prompt; /confetti previews any logo", "types": "./types/index.d.ts" }

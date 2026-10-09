@@ -9,6 +9,7 @@
     { "name": "blast-radius", "source": "./plugins/blast-radius", "description": "Holds rm -r, git reset --hard, git clean and git push --force until you press Proceed." },
     { "name": "next-steps", "source": "./plugins/next-steps", "description": "Up to three suggested next prompts above the prompt box; a click or 1/2/3 drafts one, never sends." },
     { "name": "hover-reveal", "source": "./plugins/hover-reveal", "description": "Desktop app: masks API keys, tokens and passwords in replies and tool output; hover to show them." },
-    { "name": "model-router", "source": "./plugins/model-router", "description": "Classifies each turn as mechanical, ordinary or hard and sets model and effort to match; logs every decision." }
+    { "name": "model-router", "source": "./plugins/model-router", "description": "Classifies each turn as mechanical, ordinary or hard and sets model and effort to match; logs every decision." },
+    { "name": "plugin-confetti", "source": "./plugins/plugin-confetti", "description": "When an MCP tool call finishes, shows that plugin's real logo with a short confetti burst above the prompt; /confetti previews any logo." }
   ]
 }
