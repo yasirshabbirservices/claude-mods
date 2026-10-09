@@ -1,0 +1,7 @@
+{
+  "name": "blast-radius",
+  "version": "0.1.0",
+  "author": { "name": "Yasir" },
+  "description": "Holds rm -r, git reset --hard, git clean and git push --force, shows what they would change, and asks Proceed or Cancel.",
+  "types": "./types/index.d.ts"
+}

@@ -7,6 +7,7 @@ Claude Code mods by Yasir, published as the `yasir-mods` marketplace.
 | [token-weather](plugins/token-weather) | Band above the prompt: weather word (Clear → Compact soon), % used, tokens / window, 12-turn chart. |
 | [context-bar](plugins/context-bar) | Bar above the prompt showing context use by category, with the auto-compact point. `/context-bar` toggles. |
 | [agents-panel](plugins/agents-panel) | Pane listing `.claude/agents` with a ▶ run button each. `/agents-panel` toggles. |
+| [blast-radius](plugins/blast-radius) | Holds `rm -r`, `git reset --hard`, `git clean`, `git push --force`; a pane lists the files or commits affected, with Cancel (default) and Proceed. |
 
 ## Install on a machine (all sessions, user scope)
 
@@ -15,6 +16,7 @@ claude plugin marketplace add yasirshabbirservices/claude-mods
 claude plugin install token-weather@yasir-mods --scope user
 claude plugin install context-bar@yasir-mods --scope user
 claude plugin install agents-panel@yasir-mods --scope user
+claude plugin install blast-radius@yasir-mods --scope user
 ```
 
 ## Cloud sessions (claude.ai/code)
