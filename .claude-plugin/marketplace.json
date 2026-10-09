@@ -1,0 +1,5 @@
+{
+  "name": "yasir-mods",
+  "owner": { "name": "Yasir" },
+  "plugins": [{ "name": "token-weather", "source": "./" }]
+}
