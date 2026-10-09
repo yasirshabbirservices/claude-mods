@@ -1,5 +1,10 @@
 {
   "name": "yasir-mods",
   "owner": { "name": "Yasir" },
-  "plugins": [{ "name": "token-weather", "source": "./" }]
+  "description": "Claude Code mods: context-window bands and an agents panel.",
+  "plugins": [
+    { "name": "token-weather", "source": "./plugins/token-weather", "description": "Weather word, percent and 12-turn chart for context usage, above the prompt." },
+    { "name": "context-bar", "source": "./plugins/context-bar", "description": "A bar above the prompt showing context window use by category." },
+    { "name": "agents-panel", "source": "./plugins/agents-panel", "description": "A pane listing .claude/agents with a run button for each." }
+  ]
 }

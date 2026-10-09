@@ -1,0 +1,1 @@
+{ "name": "agents-panel", "version": "0.1.0", "author": { "name": "Yasir" }, "description": "A pane listing the project agents in .claude/agents, with a run button for each", "types": "./types/index.d.ts" }

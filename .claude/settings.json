@@ -1,0 +1,12 @@
+{
+  "extraKnownMarketplaces": {
+    "yasir-mods": {
+      "source": { "source": "github", "repo": "yasirshabbirservices/claude-mods" }
+    }
+  },
+  "enabledPlugins": {
+    "token-weather@yasir-mods": true,
+    "context-bar@yasir-mods": true,
+    "agents-panel@yasir-mods": true
+  }
+}
