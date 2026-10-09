@@ -8,6 +8,7 @@
     "token-weather@yasir-mods": true,
     "context-bar@yasir-mods": true,
     "agents-panel@yasir-mods": true,
-    "blast-radius@yasir-mods": true
+    "blast-radius@yasir-mods": true,
+    "next-steps@yasir-mods": true
   }
 }

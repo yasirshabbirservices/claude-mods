@@ -6,6 +6,7 @@
     { "name": "token-weather", "source": "./plugins/token-weather", "description": "Weather word, percent and 12-turn chart for context usage, above the prompt." },
     { "name": "context-bar", "source": "./plugins/context-bar", "description": "A bar above the prompt showing context window use by category." },
     { "name": "agents-panel", "source": "./plugins/agents-panel", "description": "A pane listing .claude/agents with a run button for each." },
-    { "name": "blast-radius", "source": "./plugins/blast-radius", "description": "Holds rm -r, git reset --hard, git clean and git push --force until you press Proceed." }
+    { "name": "blast-radius", "source": "./plugins/blast-radius", "description": "Holds rm -r, git reset --hard, git clean and git push --force until you press Proceed." },
+    { "name": "next-steps", "source": "./plugins/next-steps", "description": "Up to three suggested next prompts above the prompt box; a click or 1/2/3 drafts one, never sends." }
   ]
 }
