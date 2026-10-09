@@ -1,0 +1,1 @@
+{ "name": "decision-picker", "version": "0.1.0", "author": { "name": "Yasir" }, "description": "When a reply asks you to approve decisions D1, D2, ..., shows toggles above the prompt; Approve drafts the reply, never sends", "types": "./types/index.d.ts" }

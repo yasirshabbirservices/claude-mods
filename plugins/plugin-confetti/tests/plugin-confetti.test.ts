@@ -18,7 +18,7 @@ const engine = (on: On, failing = false) => {
   on('ui.render', ($, e) => h($.ui.resolve(e).Box, {}) as RenderElement)
   on('command.run', () => ({ text: '' }))
   on('tool.call', () => ({ result: 'done', isError: failing }) as never)
-  on('tool.list', () => ({ value: [{ name: 'mcp__31ded475-b254__send_message', description: 'Gmail API: send a message', mcp: true }] }) as never)
+  on('tool.list', () => ({ value: [{ name: 'mcp__0a1b2c3d-e4f5__send_message', description: 'Gmail API: send a message', mcp: true }] }) as never)
 }
 
 const call = ($: Engine, tool: string) => $.tool.call({ tool, tool_use_id: `u-${tool}` } as never)
@@ -54,7 +54,7 @@ test('an MCP call that finishes shows its plugin, on the desktop and in the term
 test('a server named by id is identified from its tool description', async ($, on) => {
   mock.clock(on)
   engine(on)
-  await call($, 'mcp__31ded475-b254__send_message')
+  await call($, 'mcp__0a1b2c3d-e4f5__send_message')
   const ui = await $.ui.mount({ plugin: 'plugin-confetti', surface: 'desktop', ...band })
   const svg = (await ui.find({ type: 'Svg' } as never)) as { props: { alt: string } }
   expect(svg.props.alt).toBe(`${brandFor('gmail').name} finished`)

@@ -1,0 +1,1 @@
+{ "name": "pulse", "version": "0.1.0", "author": { "name": "Yasir" }, "description": "A slim glowing bar above the prompt that shows what Claude is doing: breathing when idle, a wave while thinking, a flow in the tool's colour while a tool runs, a green sweep when done, a red pulse on an error; /pulse and /pulse off", "types": "./types/index.d.ts" }

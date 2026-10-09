@@ -84,16 +84,19 @@ export const register: Register = on => {
     const c = await read($, now)
     if (c === null || e.props.hasSurvey) return next(e)
     const brand = brandFor(c.brand)
+    if (e.surface !== 'desktop' && e.surface !== 'terminal') return next(e)
+    // Other mods' rows (fuel, pulse) stay drawn beneath the burst.
+    const below = await next(e)
 
     if (e.surface === 'desktop') {
       const { Box, Svg } = $.ui.resolve(e)
       return (
-        <Box>
+        <Box flexDirection="column">
           <Svg source={svgCard(brand, c.seq)} alt={`${brand.name} finished`} width={360} height={72} isInteractive />
+          {below}
         </Box>
       )
     }
-    if (e.surface !== 'terminal') return next(e)
 
     const f = await read($, frame)
     const { Box, Raster, Text } = $.ui.resolve(e)
@@ -103,12 +106,15 @@ export const register: Register = on => {
       logoCache.set(brand.id, logo)
     }
     return (
-      <Box flexDirection="row" gap={2}>
-        <Raster key="logo" columns={LOGO_COLUMNS} rows={LOGO_COLUMNS / 2} cells={logo} />
-        <Box flexDirection="column">
-          <Text bold>{brand.name} finished ✓</Text>
-          <Raster key="confetti" columns={36} rows={3} cells={confettiCells(f, c.seq, brand.hex)} />
+      <Box flexDirection="column">
+        <Box flexDirection="row" gap={2}>
+          <Raster key="logo" columns={LOGO_COLUMNS} rows={LOGO_COLUMNS / 2} cells={logo} />
+          <Box flexDirection="column">
+            <Text bold>{brand.name} finished ✓</Text>
+            <Raster key="confetti" columns={36} rows={3} cells={confettiCells(f, c.seq, brand.hex)} />
+          </Box>
         </Box>
+        {below}
       </Box>
     )
   })

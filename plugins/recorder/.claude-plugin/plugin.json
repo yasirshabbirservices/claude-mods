@@ -1,0 +1,1 @@
+{ "name": "recorder", "version": "0.1.0", "author": { "name": "Yasir" }, "description": "Records every tool call of a turn (name, short target, duration, error) and shows a timeline pane with /recorder; observe only, never stores file contents or output", "types": "./types/index.d.ts" }

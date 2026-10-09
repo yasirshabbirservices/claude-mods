@@ -119,19 +119,25 @@ export const register: Register = on => {
       await update($, items, () => [])
     }
 
+    // Other mods' rows (fuel, pulse) stay drawn beneath this one.
+    const below = await next(e)
+
     return (
-      <Box flexDirection="row" gap={2}>
-        <Text dimColor>Next</Text>
-        {list.map((text, i) => (
-          <Button
-            key={`step-${i + 1}`}
-            label={shorten(text, width)}
-            hotkey={String(i + 1)}
-            plain
-            onPress={() => draft(text)}
-          />
-        ))}
-        <Button key="dismiss" label="×" role="dismiss" plain onPress={() => update($, items, () => [])} />
+      <Box flexDirection="column">
+        <Box flexDirection="row" gap={2}>
+          <Text dimColor>Next</Text>
+          {list.map((text, i) => (
+            <Button
+              key={`step-${i + 1}`}
+              label={shorten(text, width)}
+              hotkey={String(i + 1)}
+              plain
+              onPress={() => draft(text)}
+            />
+          ))}
+          <Button key="dismiss" label="×" role="dismiss" plain onPress={() => update($, items, () => [])} />
+        </Box>
+        {below}
       </Box>
     )
   })

@@ -1,15 +1,74 @@
 {
   "name": "yasir-mods",
-  "owner": { "name": "Yasir" },
-  "description": "Claude Code mods: context-window bands and an agents panel.",
+  "owner": {
+    "name": "Yasir"
+  },
+  "description": "Claude Code mods: bands above the prompt, panes, guards and helpers.",
   "plugins": [
-    { "name": "token-weather", "source": "./plugins/token-weather", "description": "Weather word, percent and 12-turn chart for context usage, above the prompt." },
-    { "name": "context-bar", "source": "./plugins/context-bar", "description": "A bar above the prompt showing context window use by category." },
-    { "name": "agents-panel", "source": "./plugins/agents-panel", "description": "A pane listing .claude/agents with a run button for each." },
-    { "name": "blast-radius", "source": "./plugins/blast-radius", "description": "Holds rm -r, git reset --hard, git clean and git push --force until you press Proceed." },
-    { "name": "next-steps", "source": "./plugins/next-steps", "description": "Up to three suggested next prompts above the prompt box; a click or 1/2/3 drafts one, never sends." },
-    { "name": "hover-reveal", "source": "./plugins/hover-reveal", "description": "Desktop app: masks API keys, tokens and passwords in replies and tool output; hover to show them." },
-    { "name": "model-router", "source": "./plugins/model-router", "description": "Classifies each turn as mechanical, ordinary or hard and sets model and effort to match; logs every decision." },
-    { "name": "plugin-confetti", "source": "./plugins/plugin-confetti", "description": "When an MCP tool call finishes, shows that plugin's real logo with a short confetti burst above the prompt; /confetti previews any logo." }
+    {
+      "name": "token-weather",
+      "source": "./plugins/token-weather",
+      "description": "Weather word, percent and 12-turn chart for context usage, above the prompt."
+    },
+    {
+      "name": "context-bar",
+      "source": "./plugins/context-bar",
+      "description": "A bar above the prompt showing context window use by category."
+    },
+    {
+      "name": "agents-panel",
+      "source": "./plugins/agents-panel",
+      "description": "A pane listing .claude/agents with a run button for each."
+    },
+    {
+      "name": "blast-radius",
+      "source": "./plugins/blast-radius",
+      "description": "Holds rm -r, git reset --hard, git clean and git push --force until you press Proceed."
+    },
+    {
+      "name": "next-steps",
+      "source": "./plugins/next-steps",
+      "description": "Up to three suggested next prompts above the prompt box; a click or 1/2/3 drafts one, never sends."
+    },
+    {
+      "name": "hover-reveal",
+      "source": "./plugins/hover-reveal",
+      "description": "Desktop app: masks API keys, tokens and passwords in replies and tool output; hover to show them."
+    },
+    {
+      "name": "model-router",
+      "source": "./plugins/model-router",
+      "description": "Classifies each turn as mechanical, ordinary or hard and sets model and effort to match; logs every decision."
+    },
+    {
+      "name": "plugin-confetti",
+      "source": "./plugins/plugin-confetti",
+      "description": "When an MCP tool call finishes, shows that plugin's real logo with a short confetti burst above the prompt; /confetti previews any logo."
+    },
+    {
+      "name": "decision-picker",
+      "source": "./plugins/decision-picker",
+      "description": "When a reply asks you to approve decisions D1, D2, ..., toggles above the prompt; Approve drafts the reply, never sends."
+    },
+    {
+      "name": "local-sync",
+      "source": "./plugins/local-sync",
+      "description": "Copies each file Claude changes under a source folder to the same path under a target folder, one file at a time; the status line says whether a browser has checked it."
+    },
+    {
+      "name": "fuel",
+      "source": "./plugins/fuel",
+      "description": "One band above the prompt showing runway: context window, plan limits with reset countdowns and an estimated cache age as clay-to-red gauges; Compact button; /fuel one-line summary."
+    },
+    {
+      "name": "recorder",
+      "source": "./plugins/recorder",
+      "description": "Records every tool call of a turn (name, short target, duration, error) and shows a timeline pane with /recorder; observe only."
+    },
+    {
+      "name": "pulse",
+      "source": "./plugins/pulse",
+      "description": "A slim glowing bar above the prompt showing what Claude is doing, coloured by tool; /pulse and /pulse off."
+    }
   ]
 }

@@ -1,7 +1,10 @@
 {
   "extraKnownMarketplaces": {
     "yasir-mods": {
-      "source": { "source": "github", "repo": "yasirshabbirservices/claude-mods" }
+      "source": {
+        "source": "github",
+        "repo": "yasirshabbirservices/claude-mods"
+      }
     }
   },
   "enabledPlugins": {
@@ -12,6 +15,11 @@
     "next-steps@yasir-mods": true,
     "hover-reveal@yasir-mods": true,
     "model-router@yasir-mods": true,
-    "plugin-confetti@yasir-mods": true
+    "plugin-confetti@yasir-mods": true,
+    "decision-picker@yasir-mods": true,
+    "local-sync@yasir-mods": true,
+    "fuel@yasir-mods": true,
+    "recorder@yasir-mods": true,
+    "pulse@yasir-mods": true
   }
 }

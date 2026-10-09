@@ -1,0 +1,26 @@
+{
+  "name": "local-sync",
+  "version": "0.1.0",
+  "author": { "name": "Yasir" },
+  "description": "Copies each file Claude changes under a source folder to the same path under a target folder (a local site's theme copy, say), one file at a time, and shows whether the result was checked in a browser",
+  "userConfig": {
+    "source_dir": {
+      "type": "string",
+      "title": "Source folder",
+      "description": "The folder Claude edits, e.g. a theme folder inside your repo. Empty: the mod does nothing.",
+      "default": ""
+    },
+    "target_dir": {
+      "type": "string",
+      "title": "Target folder",
+      "description": "Where each changed file is copied, at the same relative path, e.g. the local site's copy of that theme.",
+      "default": ""
+    },
+    "exclude": {
+      "type": "string",
+      "title": "Skip these",
+      "description": "Comma-separated folder or file names never copied.",
+      "default": ".git,node_modules,data/backup"
+    }
+  }
+}

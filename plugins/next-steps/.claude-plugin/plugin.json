@@ -1,1 +1,1 @@
-{ "name": "next-steps", "version": "0.1.0", "author": { "name": "Yasir" }, "description": "Up to three suggested next prompts above the prompt box; a click or 1/2/3 drafts one, never sends", "types": "./types/index.d.ts" }
+{ "name": "next-steps", "version": "0.1.1", "author": { "name": "Yasir" }, "description": "Up to three suggested next prompts above the prompt box; a click or 1/2/3 drafts one, never sends", "types": "./types/index.d.ts" }
