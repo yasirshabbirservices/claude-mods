@@ -9,6 +9,7 @@ Claude Code mods by Yasir, published as the `yasir-mods` marketplace.
 | [agents-panel](plugins/agents-panel) | Pane listing `.claude/agents` with a ▶ run button each. `/agents-panel` toggles. |
 | [blast-radius](plugins/blast-radius) | Holds `rm -r`, `git reset --hard`, `git clean`, `git push --force`; a pane lists the files or commits affected, with Cancel (default) and Proceed. |
 | [next-steps](plugins/next-steps) | After each answer of 80+ characters, up to three suggested next prompts (your skills and slash commands included) as buttons above the prompt. A click, or 1/2/3 in an empty prompt box, drafts it; never sends. |
+| [hover-reveal](plugins/hover-reveal) | Desktop app only: API keys, tokens and passwords in replies and tool rows show as `••••••••`; hover the `🔒 n hidden values` line under the row to see them. Display only: Claude still reads the real values. |
 
 ## Install on a machine (all sessions, user scope)
 
@@ -19,6 +20,7 @@ claude plugin install context-bar@yasir-mods --scope user
 claude plugin install agents-panel@yasir-mods --scope user
 claude plugin install blast-radius@yasir-mods --scope user
 claude plugin install next-steps@yasir-mods --scope user
+claude plugin install hover-reveal@yasir-mods --scope user
 ```
 
 ## Cloud sessions (claude.ai/code)
