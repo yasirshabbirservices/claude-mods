@@ -10,6 +10,7 @@
     "agents-panel@yasir-mods": true,
     "blast-radius@yasir-mods": true,
     "next-steps@yasir-mods": true,
-    "hover-reveal@yasir-mods": true
+    "hover-reveal@yasir-mods": true,
+    "model-router@yasir-mods": true
   }
 }

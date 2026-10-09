@@ -1,0 +1,38 @@
+{
+  "name": "model-router",
+  "version": "0.1.0",
+  "author": { "name": "Yasir" },
+  "description": "Classifies each turn as mechanical, ordinary or hard and sets the model and reasoning effort to match, logging every decision",
+  "userConfig": {
+    "switch_main_model": {
+      "type": "boolean",
+      "title": "Switch the main model",
+      "description": "Also change the main conversation's model per turn. Off by default: a model change resets the prompt cache. Subagents are routed either way.",
+      "default": false
+    },
+    "set_effort": {
+      "type": "boolean",
+      "title": "Set reasoning effort",
+      "description": "Set effort per tier: low for mechanical, medium for ordinary, high for hard.",
+      "default": true
+    },
+    "cheap_model": {
+      "type": "string",
+      "title": "Model for mechanical work",
+      "description": "An alias or full model id.",
+      "default": "claude-haiku-5-5"
+    },
+    "strong_model": {
+      "type": "string",
+      "title": "Model for hard work",
+      "description": "An alias or full model id.",
+      "default": "claude-opus-5-5"
+    },
+    "classifier_model": {
+      "type": "string",
+      "title": "Classifier model",
+      "description": "The model that classifies each prompt.",
+      "default": "haiku"
+    }
+  }
+}

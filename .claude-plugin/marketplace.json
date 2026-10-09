@@ -8,6 +8,7 @@
     { "name": "agents-panel", "source": "./plugins/agents-panel", "description": "A pane listing .claude/agents with a run button for each." },
     { "name": "blast-radius", "source": "./plugins/blast-radius", "description": "Holds rm -r, git reset --hard, git clean and git push --force until you press Proceed." },
     { "name": "next-steps", "source": "./plugins/next-steps", "description": "Up to three suggested next prompts above the prompt box; a click or 1/2/3 drafts one, never sends." },
-    { "name": "hover-reveal", "source": "./plugins/hover-reveal", "description": "Desktop app: masks API keys, tokens and passwords in replies and tool output; hover to show them." }
+    { "name": "hover-reveal", "source": "./plugins/hover-reveal", "description": "Desktop app: masks API keys, tokens and passwords in replies and tool output; hover to show them." },
+    { "name": "model-router", "source": "./plugins/model-router", "description": "Classifies each turn as mechanical, ordinary or hard and sets model and effort to match; logs every decision." }
   ]
 }
